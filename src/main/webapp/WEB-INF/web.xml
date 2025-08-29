@@ -1,72 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <servlet>
-    <description></description>
-    <display-name>LoginController</display-name>
-    <servlet-name>LoginController</servlet-name>
-    <servlet-class>controller.LoginController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LoginController</servlet-name>
-    <url-pattern>/LoginController</url-pattern>
-  </servlet-mapping>
-  <display-name>BaiTap2</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
+  <display-name>mvc3tier-sqlserver</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>views/index.jsp</welcome-file>
   </welcome-file-list>
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+    </jsp-property-group>
+  </jsp-config>
   <servlet>
     <description></description>
-    <display-name>RegisterController</display-name>
-    <servlet-name>RegisterController</servlet-name>
-    <servlet-class>controller.RegisterController</servlet-class>
+    <display-name>LogoutController</display-name>
+    <servlet-name>LogoutController</servlet-name>
+    <servlet-class>controller.LogoutController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>RegisterController</servlet-name>
-    <url-pattern>/RegisterController</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>WaitingController</display-name>
-    <servlet-name>WaitingController</servlet-name>
-    <servlet-class>controller.WaitingController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>WaitingController</servlet-name>
-    <url-pattern>/WaitingController</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>UserDAO</display-name>
-    <servlet-name>UserDAO</servlet-name>
-    <servlet-class>DAO.UserDAO</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserDAO</servlet-name>
-    <url-pattern>/UserDAO</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>UserDaoImpl</display-name>
-    <servlet-name>UserDaoImpl</servlet-name>
-    <servlet-class>DAO.UserDaoImpl</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserDaoImpl</servlet-name>
-    <url-pattern>/UserDaoImpl</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>User</display-name>
-    <servlet-name>User</servlet-name>
-    <servlet-class>model.User</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>User</servlet-name>
-    <url-pattern>/User</url-pattern>
+    <servlet-name>LogoutController</servlet-name>
+    <url-pattern>/LogoutController</url-pattern>
   </servlet-mapping>
 </web-app>
