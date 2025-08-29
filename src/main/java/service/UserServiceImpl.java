@@ -48,6 +48,11 @@ public class UserServiceImpl implements UserService {
 
         return userDao.insert(user);
     }
+    @Override
+    public boolean resetPasswordByEmailPhone(String email, String phone, String newPassword) {
+        if (email == null || phone == null || newPassword == null) return false;
+        return userDao.updatePasswordByEmailPhone(email.trim(), phone.trim(), newPassword.trim());
+    }
 
     @Override
     public boolean insert(User user) {
@@ -68,4 +73,11 @@ public class UserServiceImpl implements UserService {
     public boolean checkExistPhone(String phone) {
         return userDao.checkExistPhone(phone);
     }
+
+
+	@Override
+	public boolean updatePasswordByEmailPhone(String email, String phone, String newPassword) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

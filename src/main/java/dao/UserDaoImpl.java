@@ -123,6 +123,24 @@ public class UserDaoImpl implements UserDao {
             return false;
         }
     }
+    @Override
+    public boolean updatePasswordByEmailPhone(String email, String phone, String newPassword) {
+        final String sql = "UPDATE dbo.[User] SET [password] = ? WHERE email = ? AND phone = ?";
+        try (Connection conn = new DBConnection().getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, newPassword);
+            ps.setString(2, email);
+            ps.setString(3, phone);
+            int n = ps.executeUpdate();
+            System.out.println("[FORGOT] email=" + email + ", phone=" + phone + ", updated=" + n);
+            return n > 0;
+        } catch (Exception e) {
+            System.out.println(">>> DAO ERROR updatePasswordByEmailPhone: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 	@Override
 	public User findByUserName(String username) {
 		// TODO Auto-generated method stub

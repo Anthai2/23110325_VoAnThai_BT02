@@ -6,13 +6,13 @@
 
 <style>
 :root {
-	--bg: #faf6f1; /* nền be rất nhạt */
-	--card: #fffaf4; /* thẻ be nhạt */
-	--accent: #8b5e3c; /* nâu chính */
-	--accent-2: #a67c52; /* nâu phụ */
-	--text: #3d2b1f; /* nâu đậm cho chữ */
-	--muted: #7a6552; /* nâu mờ */
-	--border: #eadfd4; /* viền nhạt */
+	--bg: #faf6f1;
+	--card: #fffaf4;
+	--accent: #8b5e3c;
+	--accent-2: #a67c52;
+	--text: #3d2b1f;
+	--muted: #7a6552;
+	--border: #eadfd4;
 }
 
 body {
@@ -76,12 +76,13 @@ input:focus {
 
 .btn {
 	display: table;
-	margin: 12px auto 0; /* canh giữa ngang */
+	margin: 12px auto 0;
 	padding: 10px 16px;
 	border: 0;
 	border-radius: 12px;
 	background: var(--accent);
 	color: #fff;
+	cursor: pointer;
 	font-weight: 600;
 	box-shadow: 0 6px 14px rgba(139, 94, 60, .18);
 	transition: transform .05s ease;
@@ -108,12 +109,32 @@ a:hover {
 	border-radius: 10px;
 	margin-bottom: 12px;
 }
+
+.success {
+	color: #2e7d32;
+	background: #f0fff2;
+	border: 1px solid #c7e8cc;
+	padding: 8px 10px;
+	border-radius: 10px;
+	margin-bottom: 12px;
+}
+
+.subtle {
+	text-align: center;
+	margin-top: 10px;
+}
 </style>
 
 <div class="wrap">
 	<div class="card">
 		<h2>Đăng nhập</h2>
 		<p class="hint">Chào mừng trở lại 👋</p>
+
+		<!-- Thông báo sau khi đặt lại mật khẩu -->
+		<c:if test="${param.msg == 'reset_ok'}">
+			<div class="success">Mật khẩu đã được cập nhật. Vui lòng đăng
+				nhập.</div>
+		</c:if>
 
 		<c:if test="${not empty alert}">
 			<div class="alert">
@@ -144,11 +165,16 @@ a:hover {
 			</div>
 
 			<button class="btn" type="submit">Đăng nhập</button>
-			<div style="text-align: center; margin-top: 10px;">
+
+			<div class="subtle">
+				<a href="${pageContext.request.contextPath}/forgot">Quên mật
+					khẩu?</a>
+			</div>
+
+			<div class="subtle">
 				Chưa có tài khoản? <a
 					href="${pageContext.request.contextPath}/register">Đăng ký</a>
 			</div>
-
 		</form>
 	</div>
 </div>
